@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  phone_number: 1
-  office_address: MyString
+  address: MyString
 
 two:
   name: MyString
-  phone_number: 1
-  office_address: MyString
+  address: MyString

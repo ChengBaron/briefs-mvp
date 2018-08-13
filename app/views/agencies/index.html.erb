@@ -1,0 +1,13 @@
+<h1>Welcome to our Agency directory!</h1>
+
+<h2>The long list: </h2>
+
+<div>
+  <ul>
+    <% @agencies.each do |agency| %>
+      <li><%= link_to agency.name, agency_path(agency) %>)</li>
+<!--       <li><%= agency[:name] %> (<%= agency[:address] %>)</li>
+ -->    <% end %>
+  </ul>
+</div>
+
