@@ -5,9 +5,12 @@
 <div>
   <ul>
     <% @agencies.each do |agency| %>
-      <li><%= link_to agency.name, agency_path(agency) %>)</li>
+      <li><%= link_to agency.name, agency_path(agency) %></li>
 <!--       <li><%= agency[:name] %> (<%= agency[:address] %>)</li>
  -->    <% end %>
   </ul>
 </div>
+
+<p>Are you working at an agency? Is your agency not listed here? Please add it <%= link_to "here", new_agency_path %></p>
+
 

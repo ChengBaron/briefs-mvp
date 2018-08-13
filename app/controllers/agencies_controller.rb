@@ -5,11 +5,11 @@ class AgenciesController < ApplicationController
   end
 
   def show          # GET /agencies/:id
-    @agencies = Agency.find(params[:id])
+    @agency = Agency.find(params[:id])
   end
 
   def new           # GET /agencies/new
-    @agency = Agency.new(agency_params)
+    @agency = Agency.new(params[:id])
   end
 
   def create        # POST /agencies
