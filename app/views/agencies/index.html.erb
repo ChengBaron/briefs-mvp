@@ -2,14 +2,19 @@
 
 <h2>The long list: </h2>
 
-<div>
-  <ul>
-    <% @agencies.each do |agency| %>
-      <li><%= link_to agency.name, agency_path(agency) %></li>
-<!--       <li><%= agency[:name] %> (<%= agency[:address] %>)</li>
- -->    <% end %>
-  </ul>
-</div>
+<ul>
+  <% @agencies.each do |agency| %>
+    <li>
+      <h3><%= agency.name %></h3>
+      <p><%= agency.description %></p>
+      <p><%= agency.address %></p>
+      <p><%= link_to "Show", agency_path(agency) %>  <%= link_to "Edit", edit_agency_path(agency) %></p>
+      <!-- <p><%= link_to "DELETE", edit_agency_path(agency) %></p> -->
+    </li>
+<!--       <li><%= agency[:name] %> (<%= agency[:address] %>)</li> -->
+  <% end %>
+</ul>
+
 
 <p>Are you working at an agency? Is your agency not listed here? Please add it <%= link_to "here", new_agency_path %></p>
 

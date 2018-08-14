@@ -43,7 +43,7 @@ class AgenciesController < ApplicationController
 
   def agency_params
     # *Strong params*: *whitelist* what can be updated by the user
-    params.require(:agency).permit(:name, :address)
+    params.require(:agency).permit(:name, :address, :description)
   end
 
 end
