@@ -1,5 +1,7 @@
 class AgenciesController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: :index
+
   def index         # GET /agencies
     @agencies = Agency.all
   end
