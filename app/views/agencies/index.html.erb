@@ -5,13 +5,18 @@
 <ul>
   <% @agencies.each do |agency| %>
     <li>
-      <h3><%= agency.name %></h3>
+      <%= link_to agency_path(agency) do %>
+        <h3><%= agency.name %></h3>
+      <% end %>
       <p><%= agency.description %></p>
       <p><%= agency.address %></p>
-      <p><%= link_to "Show", agency_path(agency) %>  <%= link_to "Edit", edit_agency_path(agency) %></p>
+
+      <% if user_signed_in? %>
+        <p><%= link_to "Edit", edit_agency_path(agency) %></p>
+      <% end %>
+
       <!-- <p><%= link_to "DELETE", edit_agency_path(agency) %></p> -->
     </li>
-<!--       <li><%= agency[:name] %> (<%= agency[:address] %>)</li> -->
   <% end %>
 </ul>
 
