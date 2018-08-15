@@ -1,12 +1,14 @@
 class AgenciesController < ApplicationController
 
+  before_action :set_agency, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: :index
 
   def home
   end
 
   def index         # GET /agencies
-    @agencies = Agency.all
+    # @agencies = Agency.all
+    @agencies = policy_scope(Agency)
   end
 
   def show          # GET /agencies/:id
@@ -15,10 +17,13 @@ class AgenciesController < ApplicationController
 
   def new           # GET /agencies/new
     @agency = Agency.new(params[:id])
+    authorize @agency
   end
 
   def create        # POST /agencies
     @agency = Agency.new(agency_params.merge(user_id: current_user.id))
+    # @agency.user = current_user
+    authorize @agency
     @agency.save!
     # no need for app/views/agencies/create.html.erb
     redirect_to agency_path(@agency)
@@ -43,6 +48,11 @@ class AgenciesController < ApplicationController
   end
 
   private
+
+  def set_agency
+    @agency = Agency.find(params[:id])
+    authorize @agency
+  end
 
   def agency_params
     # *Strong params*: *whitelist* what can be updated by the user
