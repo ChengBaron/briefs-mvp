@@ -1,7 +1,7 @@
 <h1>Agency profile: <%= @agency.name %></h1>
 
-<h2><%= @agency.address %></h2>
+<h2><%= @agency.address.to_s+', '+@agency.description.to_s %></h2>
 
-<p> [INSERT A SHORT BLURB ABOUT THE AGENCY] </p>
+<p><%= @agency.description %><p>
 
-<p> <%= link_to "Back to Long list", agencies_path %> </p>
+<%= link_to "Back to Long list", agencies_path %> </p>
